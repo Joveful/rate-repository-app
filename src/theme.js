@@ -8,7 +8,7 @@ const theme = {
     mainBackground: '#e1e4e8',
     appBar: '#24292e',
     inputBorder: '#8c95a2',
-    errorBorder: '#d73a4a',
+    error: '#d73a4a',
   },
   fontSizes: {
     body: 14,

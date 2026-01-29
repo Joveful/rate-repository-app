@@ -56,7 +56,7 @@ const SignIn = () => {
       <TextInput 
         id='username'
         style={{borderColor: formik.errors.username && formik.touched.username ? 
-          theme.colors.errorBorder : 
+          theme.colors.error : 
           theme.colors.inputBorder, 
           ...styles.input}} 
         placeholder='Username' 
@@ -64,12 +64,12 @@ const SignIn = () => {
         onChangeText={formik.handleChange('username')}
       />
       {formik.touched.username && formik.errors.username && (
-        <Text style={{ color: '#d73a4a' }}>{formik.errors.username}</Text>
+        <Text style={{ color: theme.colors.error }}>{formik.errors.username}</Text>
       )}
       <TextInput 
         id='password'
         style={{borderColor: formik.errors.password && formik.touched.password ? 
-          theme.colors.errorBorder : 
+          theme.colors.error : 
           theme.colors.inputBorder, 
           ...styles.input}} 
         placeholder='Password' 
@@ -78,7 +78,7 @@ const SignIn = () => {
         onChangeText={formik.handleChange('password')}
       />
       {formik.touched.password && formik.errors.password && (
-        <Text style={{ color: '#d73a4a' }}>{formik.errors.password}</Text>
+        <Text style={{ color: theme.colors.error }}>{formik.errors.password}</Text>
       )}
       <Pressable onPress={formik.handleSubmit} style={styles.button}>
         <Text fontWeight='bold' style={styles.button.buttonText}>Sign in</Text>
