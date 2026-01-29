@@ -2,16 +2,19 @@ import { View, StyleSheet, Pressable, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 import Text from './Text';
 import { Link } from 'react-router-native';
+import theme from '../theme';
 
 const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#24292e',
+    backgroundColor: theme.colors.appBar,
     flexDirection: 'row',
   },
   title: {
     color: 'white',
-    padding: 10
+    padding: 10,
+    fontSize: theme.fontSizes.subheading,
+    fontWeight: theme.fontWeights.bold
   }
 
 });
