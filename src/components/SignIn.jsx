@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
   input: {
     padding: 10,
     marginVertical: 7,
-    borderColor: theme.colors.inputBorder,
     borderWidth: 2,
     borderRadius: 5
   },
@@ -56,7 +55,10 @@ const SignIn = () => {
     <View style={styles.container}>
       <TextInput 
         id='username'
-        style={styles.input} 
+        style={{borderColor: formik.errors.username && formik.touched.username ? 
+          theme.colors.errorBorder : 
+          theme.colors.inputBorder, 
+          ...styles.input}} 
         placeholder='Username' 
         value={formik.values.username}
         onChangeText={formik.handleChange('username')}
@@ -66,7 +68,10 @@ const SignIn = () => {
       )}
       <TextInput 
         id='password'
-        style={styles.input} 
+        style={{borderColor: formik.errors.password && formik.touched.password ? 
+          theme.colors.errorBorder : 
+          theme.colors.inputBorder, 
+          ...styles.input}} 
         placeholder='Password' 
         secureTextEntry
         value={formik.values.password}
