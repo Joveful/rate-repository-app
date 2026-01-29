@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     padding: 3,
     marginTop: 5,
+    paddingHorizontal: 5
   },
   metricRow: {
     flexDirection: 'row',
