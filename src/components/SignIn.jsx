@@ -1,11 +1,11 @@
 import { Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { useNavigate } from 'react-router-native';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
 import Text from './Text';
 import theme from '../theme';
 import useSignIn from '../hooks/useSignIn';
-import { useNavigate } from 'react-router-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,22 +31,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const SignIn = () => {
-  const [signIn] = useSignIn();
-  const navigate = useNavigate();
-
-  const onSubmit = async (values) => {
-    const { username, password } = values;
-
-    try {
-      const { data } = await signIn({ username, password });
-      console.log('Login successful, access token:', data);
-      navigate('/');
-    } catch (e) {
-      console.log('Login failed:', e);
-    }
-  };
-
+export const SignInContainer = ({ onSubmit }) => {
   const validationSchema = yup.object().shape({
     username: yup
       .string()
@@ -99,6 +84,25 @@ const SignIn = () => {
       </Pressable>
     </View>
   );
+}
+
+const SignIn = () => {
+  const [signIn] = useSignIn();
+  const navigate = useNavigate();
+
+  const onSubmit = async (values) => {
+    const { username, password } = values;
+
+    try {
+      const { data } = await signIn({ username, password });
+      console.log('Login successful, access token:', data);
+      navigate('/');
+    } catch (e) {
+      console.log('Login failed:', e);
+    }
+  };
+
+  return <SignInContainer onSubmit={onSubmit} />;
 };
 
 export default SignIn;
